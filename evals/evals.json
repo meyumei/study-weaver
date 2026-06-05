@@ -36,6 +36,18 @@
       "prompt": "我想用英文复习这门高频电子线路课程，因为以后可能要考研或者出国。请帮我整理第4章振荡器的核心内容，用英文术语为主，关键公式用LaTeX，知识地图用Mermaid。",
       "expected_output": "Should use English mode or bilingual mode, use LaTeX for formulas, generate Mermaid diagrams, and structure content for both exam prep and long-term understanding.",
       "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "我有一本《高频电子线路》教材 PDF，目录如下：第1章导论 第2章选频网络 第3章放大器 第4章振荡器 第5章混频器。考试在6月10日，每天能学2小时。帮我根据教材结构自动生成学习路线和节奏规划，要求能按阶段掌握知识，自动标记各章依赖关系。",
+      "expected_output": "Should select textbook-route mode, analyze textbook structure, generate chapter sequence with time allocation (5 weeks total), create dependency map showing prerequisites, produce weekly milestones with review rhythm, and output route/ directory artifacts.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "根据我的教材目录，我想自顶向下规划学习：先把整本书过一遍获得框架，再逐章深入学习。请帮我设计这样一个两阶段学习计划，先生成全局地图，再细化每章计划，要求输出Markdown格式，公式用LaTeX，知识地图用Mermaid。",
+      "expected_output": "Should select textbook-route mode, propose top-down two-phase study plan (framework first, then deep dive), generate global chapter dependency map with Mermaid, create per-chapter study schedule, and produce route/ directory with progressive planning files.",
+      "files": []
     }
   ]
 }

@@ -29,6 +29,7 @@ Study Weaver 是一个可定制的 Claude Code 学习与备考技能。它接收
 | **Deep-review** 高分精学 | 有充足时间，目标 85+/90+ | Build connected knowledge system and transfer ability / 构建知识网络，培养迁移能力 |
 | **Exam-consolidation** 考前收束 | 学过一遍，临近考试 | Convert existing notes and mistakes into exam-ready structure / 将已有笔记和错题整合为考前复习结构 |
 | **Survival-cram** 生存速通 | 时间紧迫，目标及格/75+ | Maximize score per hour / 每小时最大化得分 |
+| **Textbook-route** 教材驱动规划 | 提供教材 PDF/目录/章节列表 | Auto-generate chapter sequence, time allocation, milestones / 根据教材结构自动生成学习路线和节奏规划 |
 
 ### Multi-format Output / 多格式输出
 
@@ -166,12 +167,12 @@ Review Chapter 2 frequency-selective networks with knowledge map and formula sys
 3 days until my RF circuits exam, I studied but forgot a lot, help me consolidate
 ```
 
-**Survival-cram 生存速通：**
+**Textbook-route 教材驱动规划：**
 ```
-明天就考通信原理了，基本没学，只有课件和两套真题，目标60分能过就行
+我有一本《高频电子线路》教材 PDF，帮我根据目录自动生成学习路线和节奏规划，考试在 6 月 10 日
 ```
 ```
-Communications theory exam tomorrow, barely studied, just slides and two past papers, I just need to pass
+I have a "RF Circuits" textbook PDF, help me auto-generate a learning route and pacing plan from the table of contents, exam on June 10
 ```
 
 **Handwritten notes 手写笔记：**
@@ -278,6 +279,17 @@ flowchart TD
     Keyword -->|"选择性"| Sel["比较 Q 值"]
 ```
 
+### Chapter Dependency Map 章节依赖路线图
+
+```mermaid
+flowchart TD
+    Ch1["Chapter 1: Introduction"] --> Ch2["Chapter 2: Basics"]
+    Ch2 --> Ch3["Chapter 3: Applications"]
+    Ch2 --> Ch4["Chapter 4: Advanced"]
+    Ch3 --> Ch5["Chapter 5: Case Studies"]
+    Ch4 --> Ch5
+```
+
 ---
 
 ## Output Structure / 输出结构
@@ -300,6 +312,11 @@ progress/
 │   ├── 00_生存大纲.md
 │   ├── 高频公式与关键词.md
 │   └── A4压缩.md
+├── route/                     # Textbook-route / 教材驱动规划
+│   ├── 00_教材分析.md
+│   ├── 01_学习路线图.md
+│   ├── 02_节奏规划.md
+│   └── 03_章节速查表.md
 └── notes/                     # Handwritten notes / 手写笔记
     ├── 手写笔记_重点提取.md
     └── 手写笔记_公式核对表.md

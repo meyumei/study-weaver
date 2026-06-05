@@ -109,22 +109,78 @@ progress/exam/终极公式体系.md
 progress/exam/考前30分钟速看.md
 ```
 
-### 4. Survival-cram mode（生存速通）
+### 5. Textbook-route mode（教材驱动规划）
 
-Use when time is short or the user mainly wants pass/75+.
+Use when the user provides a textbook (PDF, table of contents photo, chapter list) and wants an automatic learning route and pacing plan based on the textbook structure.
 
-Goal: maximize score per hour.
+Goal: generate a chapter-by-chapter learning sequence, time allocation, and milestone checkpoints from the textbook's table of contents.
 
 Typical outputs:
 
 ```text
-progress/cram/00_生存大纲.md
-progress/cram/高频公式与关键词.md
-progress/cram/题型第一反应.md
-progress/cram/考前A4压缩.md
+progress/route/00_教材分析.md          # TOC structure, chapter summaries, prerequisite links
+progress/route/01_学习路线图.md        # Mermaid route map + chapter learning order
+progress/route/02_节奏规划.md          # Daily/weekly schedule, milestones
+progress/route/03_章节速查表.md        # Per-chapter core points, estimated time, difficulty rating
 ```
 
-Do not shame cramming. Convert constraints into a plan.
+Workflow:
+
+1. Read textbook table of contents:
+   - If PDF: extract TOC page or use OCR on TOC photo
+   - If photo: OCR and let user verify chapter titles
+   - If user-pasted list: parse directly
+   - If unclear: ask user to confirm chapter order
+
+2. Identify chapter structure and prerequisite dependencies:
+   - Use common STEM patterns (e.g., "Chapter 1 Introduction" → "Chapter 2 Basics" → "Chapter 3 Applications")
+   - Suggest dependencies for user confirmation (e.g., "Chapter 4 uses formulas from Chapter 2 — should Chapter 2 come first?")
+   - If no clear dependencies, default to linear order
+
+3. Estimate time per chapter:
+   - Base: 4 hours per chapter per week (user-configurable)
+   - Adjust by difficulty: ★ (3h), ★★ (4h), ★★★ (6h)
+   - Difficulty heuristics: chapter length, formula density, prerequisite count
+   - Let user override any estimate
+
+4. Generate learning route map:
+   - Use Mermaid flowchart to show chapter dependencies
+   - Use Unicode subscripts (f₀, Q, BW) — never LaTeX inside Mermaid nodes
+   - Include legend: ★/★★/★★★ difficulty, estimated hours
+
+5. Generate pacing plan:
+   - If exam date provided: backward schedule from exam date
+   - If no exam date: forward schedule from today
+   - Daily/weekly breakdown with milestones (e.g., "Week 2: Chapters 1-3, milestone: understand resonance basics")
+   - Include buffer days for review and catch-up
+
+6. Generate chapter quick-reference sheet:
+   - One-line summary per chapter
+   - Core formulas (LaTeX in Markdown, not in Mermaid)
+   - Prerequisites and post-requisites
+   - Estimated time range (basic vs deep)
+
+7. Optional integration with existing modes:
+   - Each chapter in the route can trigger deep-review or exam-consolidation when the user reaches it
+   - Link to progress/deep_review/[chapter]_高分复习.md when available
+
+Key rules:
+
+- Always use Mermaid with Unicode subscripts (f₀, Q, BW) — never LaTeX inside Mermaid nodes
+- Difficulty ratings: ★ (basic), ★★ (moderate), ★★★ (advanced)
+- Time estimates: provide ranges (e.g., 3-5h) and let user adjust
+- If PDF TOC is readable, auto-extract; if photo, OCR then user verification
+- When exam date is given, backward-schedule from exam day
+- When no dependencies are clear, default to linear order
+- Always let user override dependency suggestions and time estimates
+
+Do not:
+- Claim perfect TOC extraction — mark uncertain OCR and ask for verification
+- Use LaTeX inside Mermaid — use Unicode subscripts instead
+- Assume all chapters have dependencies — linear is a valid default
+- Hardcode time per chapter — let user adjust based on their pace
+
+
 
 ## Personalization through study_profile.md
 
