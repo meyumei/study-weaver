@@ -1,0 +1,41 @@
+{
+  "skill_name": "study_weaver",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "我这学期正在学高频电子线路，每周都有课件、作业和手写笔记。请帮我设计一个每周复习闭环，默认输出 Markdown，要求公式能渲染，知识点之间要有连接，不要只做考前突击。",
+      "expected_output": "Should select semester-sync mode, propose a weekly Markdown workflow, include LaTeX formula rules, Mermaid/knowledge-link structure, and optional Anki/HTML only when useful.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "我高频电子线路想冲90分，已经学过一遍。请按高分精学模式整理第2章选频网络：要有知识地图、公式体系、题型调用链、易错断链和自测题。Markdown要适合长期维护。",
+      "expected_output": "Should select deep-review mode and output a readable Markdown structure with LaTeX formulas, Mermaid knowledge map, question trigger chains, mistake chains, and self-test prompts.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我有一堆手写笔记照片和几张老师板书图，里面有公式和老师强调点。请告诉我怎么整理成复习资料，哪些地方需要人工核对，最后默认生成什么 Markdown 文件。",
+      "expected_output": "Should use handwritten-note workflow, warn about OCR uncertainty for formulas/symbols, produce note extraction and formula-check Markdown artifacts, and avoid claiming perfect all-format support.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "还有3天考高频电子线路，之前学过但很多忘了，作业和真题都有一部分。帮我做个考前收束计划，把已有笔记和错题整合成考前复习材料，最后生成考前30分钟速看版。",
+      "expected_output": "Should select exam-consolidation mode, build a 3-day plan from existing notes/homework/past papers, rebuild formula-trigger chains, pull mistakes into recovery list, and produce a final compression artifact.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "明天就考通信原理了，我基本没怎么学，只有课件和两套真题。目标60分能过就行。帮我想办法，告诉我优先看什么、放弃什么。",
+      "expected_output": "Should select survival-cram mode, challenge unrealistic expectations gently, produce a survival outline with must-win topics, strategic abandonment, high-frequency formulas, and first-reaction question routines.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "我想用英文复习这门高频电子线路课程，因为以后可能要考研或者出国。请帮我整理第4章振荡器的核心内容，用英文术语为主，关键公式用LaTeX，知识地图用Mermaid。",
+      "expected_output": "Should use English mode or bilingual mode, use LaTeX for formulas, generate Mermaid diagrams, and structure content for both exam prep and long-term understanding.",
+      "files": []
+    }
+  ]
+}
