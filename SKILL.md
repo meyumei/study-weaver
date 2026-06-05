@@ -238,15 +238,15 @@ Use a layered structure:
 4. **Mistake-chain map**: where students usually break the chain.
 5. **Integrated-problem map**: how multiple chapters connect in comprehensive questions.
 
-Prefer Mermaid for readable maps:
+Prefer Mermaid for readable maps. Do NOT use LaTeX (`$...$`) inside Mermaid nodes — Mermaid does not render LaTeX. Use Unicode subscripts (₀, ₁, ²) and plain text for formulas in diagrams. Put the full LaTeX version in the surrounding Markdown text instead.
 
 ```mermaid
 flowchart TD
-    LC["LC 谐振回路"] --> f0["谐振频率 $f_0$"]
-    LC --> Q["品质因数 $Q$"]
-    Q --> BW["通频带 $BW = f_0 / Q$"]
+    LC["LC 谐振回路"] --> f0["谐振频率 f₀"]
+    LC --> Q["品质因数 Q"]
+    Q --> BW["通频带 BW = f₀ / Q"]
     BW --> Select["选择性"]
-    Select --> Trap["陷阱：$Q$ 越大，$BW$ 越窄"]
+    Select --> Trap["陷阱：Q 越大，BW 越窄"]
 ```
 
 Pair diagrams with a short explanation and a question-trigger chain.
